@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "./lib/fontawesome/css/all.min.css"
 import Header from "./components/Header";
 import WatchList from './components/WatchList';
 import Watched from './components/Watched';

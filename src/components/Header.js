@@ -16,7 +16,7 @@ const Header = () => {
                     </Link>
                </li>
                <li>
-                <Link to={'/add'}> <i className='fas fa-plus'></i></Link>
+                <Link to={'/add'} className='btn'> <i className='fas fa-plus'></i></Link>
                </li>
             </ul>
         </div>
