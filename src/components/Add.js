@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import ResultCard from './ResultCard';
+
 
 const Add = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  
   function onChange(e) {
     e.preventDefault();
     setQuery(e.target.value);
@@ -42,6 +44,7 @@ const Add = () => {
             <h2>
               Milyonlarca film, TV şovu ve keşfedilecek kişi. Şimdi keşfedin.
             </h2>
+          
           </div>
           <div className="input-wrapper">
             <input
