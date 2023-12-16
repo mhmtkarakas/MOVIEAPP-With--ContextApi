@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { GlobalContext } from './../context/GlobalState';
+import { GlobalContext } from "./../context/GlobalState";
 
 const ResultCard = ({ movie }) => {
-      
-      const {addMovieToWatchlist} = useContext(GlobalContext);
+  const { watchlist, addMovieToWatchlist } = useContext(GlobalContext);
+  const storedMovie = watchlist.find((scene) => scene.id === movie.id);
 
   return (
     <div className="result-card">
@@ -20,19 +20,25 @@ const ResultCard = ({ movie }) => {
       <div className="info">
         <div className="header">
           <h3 className="title">{movie.title}</h3>
-          {movie.release_date.length>0  ? (
-            <h4 className="release-date">{movie.release_date.substring(0,4)}</h4>
+          {movie.release_date.length > 0 ? (
+            <h4 className="release-date">
+              {movie.release_date.substring(0, 4)}
+            </h4>
           ) : (
             <h4>-</h4>
           )}
-            {movie.vote_average  ? (
-            <h4 className="release-date">IMDB:<b>{movie.vote_average}</b></h4>
+          {movie.vote_average ? (
+            <h4 className="release-date">
+              IMDB:<b>{movie.vote_average}</b>
+            </h4>
           ) : (
             "IMDB degeri bulunamadi"
           )}
         </div>
         <div className="controls">
-            <button className="btn" onClick={()=>addMovieToWatchlist(movie)}>Add to Watchlist</button>
+          <button className="btn" disabled={storedMovie} onClick={() => addMovieToWatchlist(movie)}>
+            Add to Watchlist
+          </button>
         </div>
       </div>
     </div>

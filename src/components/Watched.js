@@ -15,7 +15,7 @@ const Watched = () => {
         {watched.length > 0 && (
           <div className="movie-grid">
             {watched.map((movie) => (
-              <MovieCard movie={movie} />
+              <MovieCard movie={movie} key={movie.id} type="watched" />
             ))}
           </div>
         )}
