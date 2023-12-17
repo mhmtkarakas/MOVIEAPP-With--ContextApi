@@ -11,13 +11,18 @@ const Watched = () => {
       <div className="container">
         <div className="header">
           <h1 className="heading">Izlenen Filmler</h1>
+          <div className="count-pill">
+            {watched.length <2 ? "movie" : "movies"}
+          </div>
         </div>
-        {watched.length > 0 && (
+        {watched.length > 0 ? (
           <div className="movie-grid">
             {watched.map((movie) => (
               <MovieCard movie={movie} key={movie.id} type="watched" />
             ))}
           </div>
+        ) : (
+          <h2 className="no-movies">Listenizde Film Yoktur...</h2>
         )}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
 //! create context
@@ -13,7 +13,7 @@ const initialState = {
     : [],
 };
 
-//? Provider Component
+//! provider components
 export const GlobalProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
@@ -34,6 +34,14 @@ export const GlobalProvider = (props) => {
     dispatch({ type: "ADD_MOVIE_TO_WATCHED", payload: movie });
   };
 
+  const moveToWatchlist = (movie) => {
+    dispatch({ type: "MOVE_TO_WATCHED", payload: movie });
+  };
+
+  const removeMovieFromWatched = (id) => {
+    dispatch({ type: "REMOVE_MOVIE_FROM_WATCHED", payload: id });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -42,6 +50,8 @@ export const GlobalProvider = (props) => {
         addMovieToWatchlist,
         removeMovieFromWatchlist,
         addMovieToWatched,
+        moveToWatchlist,
+        removeMovieFromWatched,
       }}
     >
       {props.children}
